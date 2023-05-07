@@ -58,9 +58,90 @@ The LED segments are selected based on the decimal number. For example, if we wa
 
 ## PROGRAM:
 
+int cnt=0; </br>
+int incPrev, decPrev; </br>
+void setup() </br>
+{ </br>
+  pinMode(0, INPUT); </br>
+  pinMode(3, INPUT); </br>
+  pinMode(5, INPUT); </br>
+  pinMode(13, OUTPUT); </br>
+  pinMode(12, OUTPUT); </br>
+  pinMode(11, OUTPUT); </br>
+  pinMode(10, OUTPUT); </br>
+  pinMode(9, OUTPUT); </br>
+  pinMode(8, OUTPUT); </br>
+  pinMode(7, OUTPUT); </br>
+  pinMode(6, OUTPUT); </br>
+} </br>
+void loop() </br>
+{ </br>
+int inc = digitalRead(3); </br>
+int dec = digitalRead(5); </br>
+int res = digitalRead(0); </br>
+{ </br>
+switch (cnt) </br>
+       { </br>
+       case 0://when count value is zero show”0” on </br>
+       disp digitalWrite(13, HIGH); digitalWrite(12, </br>
+       HIGH); digitalWrite(11, HIGH); digitalWrite(10, </br>
+       HIGH); digitalWrite(9, HIGH); digitalWrite(8, </br>
+       HIGH); digitalWrite(7, LOW); digitalWrite(6, </br>
+       LOW); break; case 1:// when count value is 1 </br>
+       show”1” on disp digitalWrite(13, LOW); </br>
+       digitalWrite(12, HIGH); digitalWrite(11, HIGH); </br>
+       digitalWrite(10, LOW); digitalWrite(9, LOW); </br>
+       digitalWrite(8, LOW); digitalWrite(7, LOW); </br>
+       digitalWrite(6, LOW); break; case 2:// when count </br> 
+       value is 2 show”2” on disp digitalWrite(13, HIGH); </br>
+       digitalWrite(12, HIGH); digitalWrite(11, LOW); </br>
+       digitalWrite(10, HIGH); digitalWrite(9, HIGH); </br>
+       digitalWrite(8, LOW); digitalWrite(7, HIGH); </br>
+       digitalWrite(6, LOW); break; case 3:// when count </br>
+       value is 3 show”3” on disp digitalWrite(13, HIGH); </br>
+       digitalWrite(12, HIGH); digitalWrite(11, HIGH); </br>
+       digitalWrite(10, HIGH); digitalWrite(9, LOW); </br>
+       digitalWrite(8, LOW); digitalWrite(7, HIGH); </br>
+       digitalWrite(6, LOW); break; case 4:// when count </br>
+       value is 4 show”4” on disp </br>
+       digitalWrite(13, LOW); </br>
+       digitalWrite(12, HIGH); </br>
+       digitalWrite(11, HIGH); </br>
+       digitalWrite(10, LOW); </br>
+       digitalWrite(9, LOW); </br>
+       digitalWrite(8, HIGH); </br>
+       digitalWrite(7, HIGH); </br>
+       digitalWrite(6, LOW); </br>
+       break; </br>
+       } </br>
+ } </br>
+ if((inc == HIGH)&& (cnt < 3)) </br>
+ { </br>
+ delay(1000); </br>
+ cnt++; </br>
+ switch (cnt); </br>
+ } </br>
+ if((dec == HIGH) && (cnt > 0)) </br>
+ { </br>
+ delay(1000); </br>
+ cnt--; </br>
+ switch (cnt); </br>
+ } </br>
+if ((res == HIGH)&& (cnt > 0)) </br>
+ { </br>
+  delay(1000); </br>
+  cnt=0; </br>
+  switch (cnt); </br>
+  } </br>
+}
+
 ## CIRCUIT DIAGRAM:
 
+![image](https://user-images.githubusercontent.com/132205850/236687288-034535d9-9d51-40cd-9623-6d471c9a9db3.png)
+
 ## OUTPUT:
+
+![image](https://user-images.githubusercontent.com/132205850/236687296-c37a2fb3-09cb-4b75-a5c7-61e141634bb8.png)
 
 ## RESULT:
 Thus the characters and numbers are displayed in the seven segment display using Arduino UNO controller
